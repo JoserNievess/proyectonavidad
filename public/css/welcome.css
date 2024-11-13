@@ -56,3 +56,28 @@ body {
 .btn-register:hover {
     background-color: #2d995b;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn-left {
+    background-color: #3490dc;
+    width: 150px;
+}
+
+.btn-left:hover {
+    background-color: #2779bd;
+}
+
+.btn-right {
+    background-color: #38c172;
+    width: 150px;
+}
+
+.btn-right:hover {
+    background-color: #2d995b;
+}
