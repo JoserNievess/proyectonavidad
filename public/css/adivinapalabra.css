@@ -94,3 +94,32 @@ button:hover {
     background-color: #00796b;
     transform: scale(1.05);
 }
+
+/* boton para volver al menu */
+.volver-menu {
+    position: fixed;
+    left: 50%;
+    bottom: 35px;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+
+.btn-volver {
+    background-color: #5e35b1;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #311b92;
+    transform: scale(1.05);
+}
+
+/*--------------------------*/

@@ -8,22 +8,17 @@
     <title>Adivina la Palabra</title>
 </head>
 <body>
-   
+    <div class="volver-menu">
+        <a href="{{ url('/home') }}" class="btn-volver">Volver al Menú</a>
+    </div>
     <section>
         <h2>ADIVINA LA PALABRA</h2>
-        <div id="palabra">
-            <div class="letra pintar">G</div>
-            <div class="letra">U</div>
-            <div class="letra">I</div>
-            <div class="letra">T</div>
-            <div class="letra">A</div>
-            <div class="letra">R</div>
-            <div class="letra">R</div>
-            <div class="letra">A</div>
-           
-        </div>
+        <div id="ayuda"></div>
+        <div id="palabra"></div>
+        <h3>Intentos restantes: <span id="intentos">5</span></h3>
+        <h3>Letras ingresadas: <span id="letrasIngresadas"></span></h3>
     </section>
-   
+    
     <script src="{{ asset('js/adivinapalabra.js') }}"></script>
 </body>
 </html>

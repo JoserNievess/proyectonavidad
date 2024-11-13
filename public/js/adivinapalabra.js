@@ -119,7 +119,7 @@ document.addEventListener("keydown", event => {
                     }
                 }
             }
- 
+
             //agrega la letra ingresada a las letras ya ingresadas que se visualizan
             document.getElementById("letrasIngresadas").innerHTML += event.key.toLocaleUpperCase() + " - ";
         }
