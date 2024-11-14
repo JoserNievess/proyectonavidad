@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.volver-menu {
+    margin: 20px;
+}
+.btn-volver {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+section {
+    text-align: center;
+}
+#sopa {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-gap: 5px;
+    justify-content: center;
+    margin: 20px 0;
+}
+#sopa span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #000;
+    font-size: 20px;
+    cursor: pointer;
+}
+#sopa span.seleccionada {
+    background-color: yellow;
+}
+#sopa span.encontrada {
+    background-color: lightgreen;
+}
+#palabras {
+    list-style-type: none;
+    padding: 0;
+}
+#palabras li {
+    font-size: 18px;
+    margin: 5px 0;
+}
+#palabras li.tachada {
+    text-decoration: line-through;
+}
+#reiniciar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#reiniciar:hover {
+    background-color: #0056b3;
+}
+#sopa {
+    user-select: none;
+}
