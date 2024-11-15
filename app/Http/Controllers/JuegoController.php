@@ -14,4 +14,8 @@ class JuegoController extends Controller
     {
         return view('sopaletras');
     }
+    public function memoria()
+    {
+        return view('memoria');
+    }
 }
