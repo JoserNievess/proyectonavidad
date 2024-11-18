@@ -1,17 +1,20 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido al Juego</h1>
+        <div class="button-container">
+            <a href="{{ route('adivinapalabra') }}" class="btn btn-left">Adivina la Palabra</a>
+            <a href="{{ route('sopaletras') }}" class="btn btn-right">Sopa de Letras</a>
+            <a href="{{ route('memoria') }}" class="btn btn-right">Juego de memoria</a>
         </div>
     </div>
-</x-app-layout>
+</body>
+</html>
+
