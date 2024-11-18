@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="volver-menu">
-        <a href="{{ url('/home') }}" class="btn-volver">Volver al Menú</a>
+        <a href="{{ url('/dashboard') }}" class="btn-volver">Volver al Menú</a>
     </div>
     <section>
         <h2>ADIVINA LA PALABRA</h2>
