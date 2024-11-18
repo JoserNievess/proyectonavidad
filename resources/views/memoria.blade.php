@@ -11,6 +11,9 @@
   <main>
     <section class="section1">
       <h1>Juego de Memoria</h1>
+      <div class="volver-menu">
+        <a href="{{ url('/dashboard') }}" class="btn-volver">Volver al Menú</a>
+    </div>
     <table>
       <tr>
         <td><button id="0" onclick='girar(0)'></button></td>
