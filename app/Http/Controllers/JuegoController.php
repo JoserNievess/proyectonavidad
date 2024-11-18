@@ -18,4 +18,8 @@ class JuegoController extends Controller
     {
         return view('memoria');
     }
+    public function tresEnRaya()
+    {
+        return view('tresEnRaya');
+    }
 }
