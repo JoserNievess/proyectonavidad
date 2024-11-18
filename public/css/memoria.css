@@ -49,3 +49,13 @@ footer{
 a{
   text-decoration: none;
 }
+.volver-menu {
+  margin: 20px;
+}
+.btn-volver {
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
