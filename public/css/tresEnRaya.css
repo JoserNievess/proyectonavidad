@@ -1,27 +1,67 @@
 @import './base.css';
 
-/* Contenedor del tablero */
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, 120px);
-    gap: 10px;
+body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 100vh;
+    display: flex;
     justify-content: center;
-    margin: 50px auto;
+    align-items: center;
+    color: #333;
+    font-family: 'Open Sans', sans-serif; 
 }
 
-button {
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.volver-btn {
+    background-color: #5e35b1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.volver-btn:hover {
+    background-color: #7e57c2;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.celda {
     width: 120px;
     height: 120px;
-    background-color: #ffffff;
+    background-color: white;
     border: 2px solid #5e35b1;
     font-size: 36px;
     font-weight: bold;
     color: #5e35b1;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
 }
 
-button:hover {
+.celda:hover {
     background-color: #c5cae9;
     transform: scale(1.1);
+}
+
+.celda.seleccionada {
+    background-color: #ffeb3b;
+}
+
+.celda.encontrada {
+    background-color: #81c784;
+    color: white;
 }
