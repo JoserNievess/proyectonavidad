@@ -1,66 +1,55 @@
-body {
-    font-family: Arial, sans-serif;
-}
-.volver-menu {
-    margin: 20px;
-}
-.btn-volver {
-    text-decoration: none;
-    color: white;
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-section {
-    text-align: center;
-}
+@import './base.css';
+
+/* Tablero de sopa */
 #sopa {
     display: grid;
-    grid-template-columns: repeat(10, 30px);
-    grid-gap: 5px;
+    grid-template-columns: repeat(10, 40px);
+    grid-gap: 8px;
     justify-content: center;
     margin: 20px 0;
 }
+
 #sopa span {
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    border: 1px solid #000;
     font-size: 20px;
+    border: 2px solid #5e35b1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
     cursor: pointer;
 }
+
+#sopa span:hover {
+    background-color: #c5cae9;
+}
+
 #sopa span.seleccionada {
-    background-color: yellow;
+    background-color: #ffeb3b;
 }
+
 #sopa span.encontrada {
-    background-color: lightgreen;
+    background-color: #81c784;
+    color: #ffffff;
 }
+
+/* Lista de palabras */
 #palabras {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 20px 0;
+    text-align: center;
 }
+
 #palabras li {
     font-size: 18px;
-    margin: 5px 0;
+    color: #616161;
 }
+
 #palabras li.tachada {
     text-decoration: line-through;
-}
-#reiniciar {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#reiniciar:hover {
-    background-color: #0056b3;
-}
-#sopa {
-    user-select: none;
+    color: #d32f2f;
 }
