@@ -138,6 +138,12 @@
     </style>
 </head>
 <body>
+    <!-- Música de fondo -->
+    <audio autoplay loop>
+        <source src="{{ asset('music/musica.mp3') }}" type="audio/mpeg">
+        
+    </audio>
+
     <!-- Mandos animados -->
     <div class="falling-controller">
         <img src="{{ asset('img/mando.png') }}" alt="Mando PlayStation" width="80">
@@ -165,3 +171,4 @@
     </div>
 </body>
 </html>
+

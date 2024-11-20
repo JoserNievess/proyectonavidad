@@ -8,6 +8,9 @@
     <title>Sopa de Letras</title>
 </head>
 <body>
+    <audio autoplay loop>
+        <source src="{{ asset('music/portillo2.mp3') }}" type="audio/mpeg">  
+    </audio>
     <div class="volver-menu">
         <a href="{{ url('/dashboard') }}" class="btn-volver">Volver al Menú</a>
     </div>

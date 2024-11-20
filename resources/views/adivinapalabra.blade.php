@@ -8,6 +8,10 @@
     <title>Adivina la Palabra</title>
 </head>
 <body>
+<audio autoplay loop>
+        <source src="{{ asset('music/portillo.mp3') }}" type="audio/mpeg">  
+    </audio>
+
     <div class="volver-menu">
         <a href="{{ url('/dashboard') }}" class="btn-volver">Volver al Menú</a>
     </div>
