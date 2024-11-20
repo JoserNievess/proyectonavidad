@@ -21,6 +21,9 @@
     border-radius: 8px;
     transition: background-color 0.2s ease-in-out;
     cursor: pointer;
+    user-select: none; /* Desactiva la selección de texto */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit */
+    -ms-user-select: none; /* Para navegadores antiguos de Microsoft */
 }
 
 #sopa span:hover {
