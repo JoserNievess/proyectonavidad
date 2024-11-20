@@ -1,42 +1,60 @@
-const { Button } = require("bootstrap");
-
 let turno = 0;
-const tablero = [];
+const tablero = Array(9).fill(null); 
 
-const botonPulsado = (e, pos) =>{
-
-    turno++;
+const botonPulsado = (e, pos) => {
     const boton = e.target;
-    const color = turno % 2 ? 'salmon': 'palGreen'
+
+    
+    if (tablero[pos] !== null) {
+        alert("Este espacio ya está ocupado");
+        return;
+    }
+
+   
+    turno++;
+    const color = turno % 2 ? 'salmon' : 'palegreen';
+    console.log(`Turno: ${turno}, Color: ${color}, Posición: ${pos}`);
     boton.style.backgroundColor = color;
     tablero[pos] = color;
 
-
-}
-
-const victoria = () =>{
-    if(tablero[0] == tablero[1] && tablero[0] == tablero[2] ==tablero[0]) {
-        return true;
-
-} else if (tablero[3] == tablero[4] && tablero[3] == tablero[5] ==tablero[3] ){
-    return true;
-} else if (tablero[6] == tablero[7] && tablero[6] == tablero[8] ==tablero[6] ){
-    return true;
-} else if (tablero[0] == tablero[3] && tablero[0] == tablero[6] ==tablero[0] ){
-    return true;
-} else if (tablero[1] == tablero[4] && tablero[1] == tablero[7] ==tablero[1] ){
-    return true;
-} else if (tablero[2] == tablero[5] && tablero[2] == tablero[8] ==tablero[2] ){
-    return true;
-} else if (tablero[0] == tablero[4] && tablero[0] == tablero[8] ==tablero[0] ){
-    return true;
-} else if (tablero[2] == tablero[4] && tablero[2] == tablero[6] ==tablero[2] ){
-    return true;
-}
-
+    
+    if (victoria()) {
+        setTimeout(() => alert(`¡Jugador ${color === 'salmon' ? '1' : '2'} gana!`), 100);
+        resetGame();
+    } else if (turno === 9) {
+        setTimeout(() => alert("¡Empate!"), 100);
+        resetGame();
+    }
+};
+const victoria = () => {
+   
+    const combinaciones = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
 
     
-}
+    return combinaciones.some(
+        ([a, b, c]) => tablero[a] && tablero[a] === tablero[b] && tablero[a] === tablero[c]
+    );
+};
 
-document.querySelectorAll('button').forEach(
-    (obj,i) => obj.addEventListener('click',(e) =>botonPulsado(e,i)));
+
+const resetGame = () => {
+    tablero.fill(null);
+    turno = 0;
+    document.querySelectorAll('button').forEach((boton) => {
+        boton.style.backgroundColor = '';
+    });
+};
+
+
+document.querySelectorAll('button').forEach((obj, i) =>
+    obj.addEventListener('click', (e) => botonPulsado(e, i))
+);

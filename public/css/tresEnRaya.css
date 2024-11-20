@@ -1,14 +1,19 @@
-button{
-    width: 200px;
-    height: 200px;
-    background-color: gainsboro;
-
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
 }
 
-.container{
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-width: 600px;
-margin:auto;
-
+button {
+    width: 100px; 
+    height: 100px; 
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 1.5em;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
