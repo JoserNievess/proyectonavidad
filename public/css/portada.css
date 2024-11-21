@@ -1,0 +1,87 @@
+/* General */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Video de fondo */
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+/* Música */
+audio {
+    display: none; /* Oculta el reproductor de música */
+}
+
+/* Contenedor principal */
+.container {
+    
+    border-radius: 15px;
+    
+    padding: 15px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fondo del contenedor */
+.background {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo del título y texto */
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Botones */
+.btn {
+    padding: 16px 32px;
+    margin-top: 10px;
+    background-color: #ff007f;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background-color: #ff4c9f;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
