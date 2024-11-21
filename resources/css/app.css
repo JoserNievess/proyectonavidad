@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .progress-bar {
+        background: linear-gradient(to right, #3b82f6, #9333ea); /* Azul a púrpura */
+        transition: width 0.2s ease-in-out;
+    }
+}

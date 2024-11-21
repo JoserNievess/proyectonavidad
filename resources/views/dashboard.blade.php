@@ -19,6 +19,7 @@
             <a href="{{ route('adivinapalabra') }}" class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-300 ease-in-out">Adivina la Palabra</a>
             <a href="{{ route('sopaletras') }}" class="block bg-green-500 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition duration-300 ease-in-out">Sopa de Letras</a>
             <a href="{{ route('tresEnRaya') }}" class="block bg-teal-500 hover:bg-teal-700 text-white font-bold py-3 rounded-lg transition duration-300 ease-in-out">Tres En Raya</a>
+            <a href="{{ route('relax') }}" class="block bg-teal-500 hover:bg-teal-700 text-white font-bold py-3 rounded-lg transition duration-300 ease-in-out">Relax</a>
         </div>
     </div>
 
