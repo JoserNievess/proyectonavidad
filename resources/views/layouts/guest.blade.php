@@ -31,10 +31,12 @@
             text-align: center;
             color: white;
             z-index: 10;
-            width: 100%;
-            max-width: 400px;
+            width: 90%; 
+            max-width: 800px;
             padding: 20px;
+            margin: auto; 
         }
+
 
         .background {
             background-color: rgba(0, 0, 0, 0.7);
