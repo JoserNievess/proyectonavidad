@@ -1,5 +1,5 @@
 //palbras que el jugador tiene que adivianr
-let arrayPalabras =["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
+let arrayPalabras =["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA", "RATON"];
 //ayudas pa las palabras
 let ayudas = [
     "Instrumento Musical",
@@ -7,7 +7,8 @@ let ayudas = [
     "Es un color",
     "Nombre de mujer",
     "Hardware de computadora",
-    "Es un Pais"
+    "Es un Pais",
+    "Animal de alcantarillas"
 ]
  
 let cantPalabrasJugadas = 0;
@@ -30,7 +31,7 @@ function cargarNuevaPalabra(){
     cantPalabrasJugadas++;
     if(cantPalabrasJugadas>6){
        
-        arrayPalabras =["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
+        arrayPalabras =["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA", "RATON"];
         ayudas = [
             "Instrumento Musical",
             "Animal de la selva",

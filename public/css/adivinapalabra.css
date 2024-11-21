@@ -38,3 +38,26 @@
     background-color: #e57373;
     color: #ffffff;
 }
+
+.btn-reiniciar {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reiniciar:hover {
+    background-color: #45a049;
+}
+
+.boton-reiniciar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
