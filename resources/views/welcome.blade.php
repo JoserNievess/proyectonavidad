@@ -11,13 +11,12 @@
 <body>
     <!-- Música de fondo -->
     <audio autoplay loop>
-        <source src="{{ asset('music/musica.mp3') }}" type="audio/mpeg">
-        Tu navegador no soporta audio en HTML5.
+        <source src="{{ asset('music/musica.mp3') }}" type="audio/mpeg">  
     </audio>
 
     <!-- Video de fondo -->
     <video autoplay loop muted>
-        <source src="{{ asset('video/fondo.mp4') }}" type="video/mp4">
+        <source src="{{ asset('video/fondo2.mp4') }}" type="video/mp4">
         Tu navegador no soporta videos en HTML5.
     </video>
 
