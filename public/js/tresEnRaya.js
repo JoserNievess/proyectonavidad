@@ -1,27 +1,64 @@
-let turno = 0;
+let turno = 0; 
 const tablero = Array(9).fill(null); 
 
 const botonPulsado = (e, pos) => {
     const boton = e.target;
 
     if (tablero[pos] !== null) {
-        alert("Este espacio ya está ocupado");
+        Swal.fire({
+            icon: 'error',
+            title: '¡Ups!',
+            text: 'Este espacio ya está ocupado',
+            confirmButtonText: 'De acuerdo',
+            background: '#FFB6C1',
+            color: '#fff',
+            confirmButtonColor: '#5e35b1',
+            customClass: {
+                title: 'swal-title', 
+                icon: 'swal-icon'
+            }
+        });
         return;
     }
 
     turno++;
-    const color = turno % 2 === 0 ? 'salmon' : 'palegreen'; 
-    console.log(`Turno: ${turno}, Color: ${color}, Posición: ${pos}`);
-    
+    const color = turno % 2 === 0 ? 'palegreen' : 'salmon'; 
+
     boton.style.backgroundColor = color;
     tablero[pos] = color;
 
     if (victoria()) {
-        setTimeout(() => alert(`¡Jugador ${color === 'salmon' ? '2' : '1'} gana!`), 100);
-        resetGame();
+        setTimeout(() => {
+            Swal.fire({
+                icon: 'success',
+                title: `¡Jugador ${color === 'palegreen' ? '2' : '1'} gana!`,
+                confirmButtonText: 'Reiniciar',
+                background: '#81c784',
+                color: '#fff',
+                confirmButtonColor: '#5e35b1',
+                customClass: {
+                    title: 'swal-title',
+                    icon: 'swal-icon',
+                    confirmButton: 'swal-confirm-btn'
+                }
+            }).then(resetGame);
+        }, 100);
     } else if (turno === 9) {
-        setTimeout(() => alert("¡Empate!"), 100);
-        resetGame();
+        setTimeout(() => {
+            Swal.fire({
+                icon: 'info',
+                title: '¡Empate!',
+                confirmButtonText: 'Reiniciar',
+                background: '#c5cae9',
+                color: '#333',
+                confirmButtonColor: '#5e35b1',
+                customClass: {
+                    title: 'swal-title',
+                    icon: 'swal-icon',
+                    confirmButton: 'swal-confirm-btn'
+                }
+            }).then(resetGame);
+        }, 100);
     }
 };
 
