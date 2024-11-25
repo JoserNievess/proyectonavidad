@@ -7,10 +7,23 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 flex items-center justify-center min-h-screen">
-    <audio autoplay loop>
-        <source src="{{ asset('music/musica.mp3') }}" type="audio/mpeg">  
+
+    <!-- Audio -->
+    <audio id="audio" autoplay loop>
+        <source src="{{ asset('music/musica.mp3') }}" type="audio/mpeg">
     </audio>
 
+    <!-- Controles de volumen -->
+    <div class="absolute top-4 right-4 flex items-center">
+        <!-- Icono de volumen -->
+        <button id="volumeIcon" class="bg-gray-800 text-white p-2 rounded-full mr-2">
+            🔊
+        </button>
+        <!-- Barra de volumen -->
+        <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="1" class="w-32 mt-2">
+    </div>
+
+    <!-- Contenido Principal -->
     <div class="bg-white rounded-xl shadow-xl p-8 max-w-lg w-full text-center">
         <h1 class="text-3xl font-bold text-gray-800 mb-4">Bienvenido al Juego</h1>
         <p class="text-gray-600 mb-6">Elige un juego y empieza a divertirte.</p>
@@ -22,6 +35,8 @@
             <a href="{{ route('relax') }}" class="block bg-teal-500 hover:bg-teal-700 text-white font-bold py-3 rounded-lg transition duration-300 ease-in-out">Relax</a>
         </div>
     </div>
+
+    <script src="{{ asset('js/volumen.js') }}"></script>
 
 </body>
 </html>
