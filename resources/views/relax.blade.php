@@ -51,11 +51,9 @@
         <div class="mt-6">
             <select id="music-select" onchange="changeTrack()" class="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 <option value="" disabled selected>Elige una canción</option>
-                <option value="{{ asset('music/musica.mp3') }}">Canción 1</option>
-                <option value="{{ asset('music/portillo.mp3') }}">Canción 2</option>
-                <option value="{{ asset('music/portillo1.mp3') }}">Canción 3</option>
-                <option value="{{ asset('music/portillo2.mp3') }}">Canción 4</option>
-                <option value="{{ asset('music/musica.mp3') }}">Canción 5</option>
+                <option value="{{ asset('music/portillo.mp3') }}">Cosa de 2</option>
+                <option value="{{ asset('music/portillo1.mp3') }}">Calle 42</option>
+                <option value="{{ asset('music/portillo2.mp3') }}">Temazo mundial</option>
             </select>
         </div>
 
