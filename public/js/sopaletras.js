@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const palabras = ["GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA"];
+    // Conjunto completo de palabras posibles
+    const conjuntoDePalabras = [
+        "GUITARRA", "ELEFANTE", "TURQUESA", "MARIELA", "TECLADO", "INGLATERRA", 
+        "ORDENADOR", "ZAPATO", "VIAJE", "AMISTAD", "ESTUDIO", "CIELO", "MONTAÑA", 
+        "PROGRAMAR", "CASCADA", "PEZ", "FUTBOL", "TORO", "LEON", "ESTRELLA"
+    ];
+
+    // Generar palabras aleatorias y sopa
+    let palabras = obtenerPalabrasAleatorias(conjuntoDePalabras, 5); // Seleccionar 5 palabras aleatorias
     let sopa = generarSopaDeLetras(palabras);
     mostrarSopa(sopa);
     mostrarPalabras(palabras);
@@ -15,17 +23,33 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('sopa').addEventListener('dragstart', function(event) {
         event.preventDefault();
     });
-    
+
+    // Función para reiniciar el juego
     function reiniciarJuego() {
         // Limpiar la sopa de letras y las palabras encontradas
         document.getElementById('sopa').innerHTML = '';
         document.getElementById('palabras').innerHTML = '';
-        // Generar una nueva sopa de letras
+        
+        // Seleccionar nuevas palabras aleatorias (5 palabras de un conjunto más grande)
+        palabras = obtenerPalabrasAleatorias(conjuntoDePalabras, 5);
+        
+        // Generar una nueva sopa de letras con las nuevas palabras
         sopa = generarSopaDeLetras(palabras);
         mostrarSopa(sopa);
         mostrarPalabras(palabras);
     }
 });
+
+// Función para seleccionar palabras aleatorias del conjunto
+function obtenerPalabrasAleatorias(conjunto, cantidad) {
+    const seleccionadas = [];
+    const conjuntoCopia = [...conjunto]; // Crear una copia del conjunto para no modificar el original
+    for (let i = 0; i < cantidad; i++) {
+        const indice = Math.floor(Math.random() * conjuntoCopia.length);
+        seleccionadas.push(conjuntoCopia.splice(indice, 1)[0]); // Eliminar la palabra seleccionada del conjunto
+    }
+    return seleccionadas;
+}
 
 function generarSopaDeLetras(palabras) {
     const tamaño = 10;
@@ -34,7 +58,7 @@ function generarSopaDeLetras(palabras) {
     palabras.forEach(palabra => {
         let colocada = false;
         while (!colocada) {
-            const direccion = Math.random() < 0.5 ? 'H' : 'V';
+            const direccion = Math.floor(Math.random() * 8);  // 8 posibles direcciones
             const fila = Math.floor(Math.random() * tamaño);
             const columna = Math.floor(Math.random() * tamaño);
             if (puedeColocarPalabra(sopa, palabra, fila, columna, direccion)) {
@@ -57,29 +81,110 @@ function generarSopaDeLetras(palabras) {
 }
 
 function puedeColocarPalabra(sopa, palabra, fila, columna, direccion) {
-    if (direccion === 'H') {
-        if (columna + palabra.length > sopa.length) return false;
-        for (let i = 0; i < palabra.length; i++) {
-            if (sopa[fila][columna + i] !== '') return false;
-        }
-    } else {
-        if (fila + palabra.length > sopa.length) return false;
-        for (let i = 0; i < palabra.length; i++) {
-            if (sopa[fila + i][columna] !== '') return false;
-        }
+    const tamaño = sopa.length;
+    const longPalabra = palabra.length;
+
+    switch (direccion) {
+        case 0: // Horizontal (izquierda a derecha)
+            if (columna + longPalabra > tamaño) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila][columna + i] !== '') return false;
+            }
+            break;
+        case 1: // Horizontal (derecha a izquierda)
+            if (columna - longPalabra < -1) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila][columna - i] !== '') return false;
+            }
+            break;
+        case 2: // Vertical (arriba hacia abajo)
+            if (fila + longPalabra > tamaño) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila + i][columna] !== '') return false;
+            }
+            break;
+        case 3: // Vertical (abajo hacia arriba)
+            if (fila - longPalabra < -1) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila - i][columna] !== '') return false;
+            }
+            break;
+        case 4: // Diagonal (arriba a la derecha)
+            if (fila - longPalabra < -1 || columna + longPalabra > tamaño) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila - i][columna + i] !== '') return false;
+            }
+            break;
+        case 5: // Diagonal (arriba a la izquierda)
+            if (fila - longPalabra < -1 || columna - longPalabra < -1) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila - i][columna - i] !== '') return false;
+            }
+            break;
+        case 6: // Diagonal (abajo a la derecha)
+            if (fila + longPalabra > tamaño || columna + longPalabra > tamaño) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila + i][columna + i] !== '') return false;
+            }
+            break;
+        case 7: // Diagonal (abajo a la izquierda)
+            if (fila + longPalabra > tamaño || columna - longPalabra < -1) return false;
+            for (let i = 0; i < longPalabra; i++) {
+                if (sopa[fila + i][columna - i] !== '') return false;
+            }
+            break;
+        default:
+            return false;
     }
+
     return true;
 }
 
 function colocarPalabra(sopa, palabra, fila, columna, direccion) {
-    if (direccion === 'H') {
-        for (let i = 0; i < palabra.length; i++) {
-            sopa[fila][columna + i] = palabra[i];
-        }
-    } else {
-        for (let i = 0; i < palabra.length; i++) {
-            sopa[fila + i][columna] = palabra[i];
-        }
+    const tamaño = sopa.length;
+    const longPalabra = palabra.length;
+
+    switch (direccion) {
+        case 0: // Horizontal (izquierda a derecha)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila][columna + i] = palabra[i];
+            }
+            break;
+        case 1: // Horizontal (derecha a izquierda)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila][columna - i] = palabra[i];
+            }
+            break;
+        case 2: // Vertical (arriba hacia abajo)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila + i][columna] = palabra[i];
+            }
+            break;
+        case 3: // Vertical (abajo hacia arriba)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila - i][columna] = palabra[i];
+            }
+            break;
+        case 4: // Diagonal (arriba a la derecha)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila - i][columna + i] = palabra[i];
+            }
+            break;
+        case 5: // Diagonal (arriba a la izquierda)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila - i][columna - i] = palabra[i];
+            }
+            break;
+        case 6: // Diagonal (abajo a la derecha)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila + i][columna + i] = palabra[i];
+            }
+            break;
+        case 7: // Diagonal (abajo a la izquierda)
+            for (let i = 0; i < longPalabra; i++) {
+                sopa[fila + i][columna - i] = palabra[i];
+            }
+            break;
     }
 }
 

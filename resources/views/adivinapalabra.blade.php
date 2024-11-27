@@ -27,6 +27,7 @@
         <div class="boton-reiniciar">
             <button id="reiniciarJuego" class="btn-reiniciar">Nueva Palabra</button>
         </div>
+        
     </section>
     
     <script src="{{ asset('js/adivinapalabra.js') }}"></script>
