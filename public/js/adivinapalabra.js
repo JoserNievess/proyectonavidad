@@ -107,7 +107,19 @@ document.addEventListener("keydown", event => {
 
                 if (intentosRestantes <= 0) {
                     // Si se acaban los intentos, muestra un mensaje y carga una nueva palabra
-                    alert("¡No acertaste la palabra! Intenta con otra.");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡No acertaste!',
+                        text: 'Prueba con otra palabra!',
+                        confirmButtonText: 'De acuerdo',
+                        background: '#FFB6C1',
+                        color: '#fff',
+                        confirmButtonColor: '#5e35b1',
+                        customClass: {
+                            title: 'swal-title', 
+                            icon: 'swal-icon'
+                        }
+                    });
                     for (i = 0; i < arrayPalabraActual.length; i++) {
                         divsPalabraActual[i].className = "letra pintarError";
                     }
