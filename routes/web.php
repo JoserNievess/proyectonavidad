@@ -25,5 +25,4 @@ require __DIR__.'/auth.php';
 Route::get('/adivinapalabra', [JuegoController::class, 'adivinaPalabra'])->name('adivinapalabra');
 Route::get('/sopaletras', [JuegoController::class, 'sopaLetras'])->name('sopaletras');
 Route::get('/tresEnRaya', [JuegoController::class, 'tresEnRaya'])->name('tresEnRaya');
-Route::get('/relax', [JuegoController::class, 'relax'])->name('relax');
 Route::get('/laberinto', [JuegoController::class, 'laberinto'])->name('laberinto');

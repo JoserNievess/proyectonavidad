@@ -14,7 +14,6 @@
             <a href="{{ route('sopaletras') }}" class="btn btn-right">Sopa de Letras</a>
             <a href="{{ route('tresEnRaya') }}" class="btn btn-right">Tres en rayas</a>
             <a href="{{ route('laberinto') }}" class="btn btn-right">Laberinto</a>
-            <a href="{{ route('relax') }}" class="btn btn-right">Relax</a>
         </div>
     </div>
 </body>
