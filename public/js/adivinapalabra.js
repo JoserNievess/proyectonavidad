@@ -109,9 +109,9 @@ document.addEventListener("keydown", event => {
                     // Si se acaban los intentos, muestra un mensaje y carga una nueva palabra
                     Swal.fire({
                         icon: 'error',
-                        title: '¡No acertaste!',
+                        title: 'No acertaste!',
                         text: 'Prueba con otra palabra!',
-                        confirmButtonText: 'De acuerdo',
+                        confirmButtonText: 'De acuerdo!',
                         background: '#FFB6C1',
                         color: '#fff',
                         confirmButtonColor: '#5e35b1',
