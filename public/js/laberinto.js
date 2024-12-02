@@ -77,7 +77,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     icon: "success",
                     title: "¡Felicidades!",
                     text: `Has llegado a la meta en ${movimientos} movimientos.`,
+                    
                     confirmButtonText: "Reiniciar",
+                    background: '#81c784',
+                    color: '#fff',
+                    confirmButtonColor: '#5e35b1',
+                    customClass: {
+                        title: 'swal-title',
+                        icon: 'swal-icon',
+                        confirmButton: 'swal-confirm-btn'
+                    }
                 }).then(reiniciarJuego);
             }
         }
