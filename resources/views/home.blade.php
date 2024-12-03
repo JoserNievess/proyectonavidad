@@ -13,7 +13,6 @@
             <a href="{{ route('adivinapalabra') }}" class="btn btn-left">Adivina la Palabra</a>
             <a href="{{ route('sopaletras') }}" class="btn btn-right">Sopa de Letras</a>
             <a href="{{ route('tresEnRaya') }}" class="btn btn-right">Tres en rayas</a>
-            <a href="{{ route('laberinto') }}" class="btn btn-right">Laberinto</a>
         </div>
     </div>
 </body>

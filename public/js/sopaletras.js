@@ -188,62 +188,88 @@ function colocarPalabra(sopa, palabra, fila, columna, direccion) {
     }
 }
 
+// Función para mostrar la sopa de letras en el DOM.
 function mostrarSopa(sopa) {
-    const sopaDiv = document.getElementById('sopa');
+    const sopaDiv = document.getElementById('sopa'); // Contenedor HTML donde se mostrará la sopa.
+
+    // Iterar por cada fila de la sopa de letras.
     sopa.forEach((fila, filaIndex) => {
-        const filaDiv = document.createElement('div');
+        const filaDiv = document.createElement('div'); // Crear un contenedor para cada fila.
+
+        // Iterar por cada letra de la fila.
         fila.forEach((letra, colIndex) => {
-            const letraDiv = document.createElement('span');
-            letraDiv.textContent = letra;
-            letraDiv.dataset.fila = filaIndex;
+            const letraDiv = document.createElement('span'); // Crear un elemento para cada letra.
+            letraDiv.textContent = letra; // Asignar la letra al contenido del span.
+
+            // Guardar los índices de fila y columna como atributos de datos.
+            letraDiv.dataset.fila = filaIndex; 
             letraDiv.dataset.columna = colIndex;
-            filaDiv.appendChild(letraDiv);
+
+            filaDiv.appendChild(letraDiv); // Agregar la letra al contenedor de la fila.
         });
-        sopaDiv.appendChild(filaDiv);
+
+        sopaDiv.appendChild(filaDiv); // Agregar la fila al contenedor principal de la sopa.
     });
 }
 
+// Función para mostrar la lista de palabras en el DOM.
 function mostrarPalabras(palabras) {
-    const palabrasUl = document.getElementById('palabras');
+    const palabrasUl = document.getElementById('palabras'); // Contenedor HTML donde se mostrará la lista de palabras.
+
+    // Iterar por cada palabra de la lista.
     palabras.forEach(palabra => {
-        const palabraLi = document.createElement('li');
-        palabraLi.textContent = palabra;
-        palabraLi.dataset.palabra = palabra;
-        palabrasUl.appendChild(palabraLi);
+        const palabraLi = document.createElement('li'); // Crear un elemento de lista para cada palabra.
+        palabraLi.textContent = palabra; // Asignar la palabra al contenido del elemento.
+        palabraLi.dataset.palabra = palabra; // Guardar la palabra como un atributo de datos.
+        palabrasUl.appendChild(palabraLi); // Agregar la palabra a la lista en el DOM.
     });
 }
 
+// Función que inicia el proceso de selección de letras.
 function iniciarSeleccion(event) {
-    seleccion = [];
-    seleccionando = true;
-    agregarSeleccion(event);
+    seleccion = []; // Vacía la lista de selección inicial.
+    seleccionando = true; // Marca que se está seleccionando.
+    agregarSeleccion(event); // Agrega la primera letra seleccionada.
 }
 
+// Función para agregar letras a la selección mientras se arrastra.
 function agregarSeleccion(event) {
+    // Verifica que se está seleccionando y que el objetivo sea un elemento 'SPAN'.
     if (seleccionando && event.target.tagName === 'SPAN') {
-        event.target.classList.add('seleccionada');
+        event.target.classList.add('seleccionada'); // Marca la letra como seleccionada visualmente.
+
+        // Agregar la letra y su posición (fila y columna) a la selección.
         seleccion.push({
-            letra: event.target.textContent,
-            fila: event.target.dataset.fila,
-            columna: event.target.dataset.columna
+            letra: event.target.textContent, // Contenido de la letra seleccionada.
+            fila: event.target.dataset.fila, // Fila de la letra seleccionada.
+            columna: event.target.dataset.columna // Columna de la letra seleccionada.
         });
     }
 }
 
+// Función para finalizar la selección de letras.
 function finalizarSeleccion(event) {
-    seleccionando = false;
+    seleccionando = false; // Marca que ya no se está seleccionando.
+    
+    // Combina las letras seleccionadas en una palabra.
     const palabraSeleccionada = seleccion.map(item => item.letra).join('');
+
+    // Busca en el DOM si la palabra seleccionada coincide con una de las palabras de la lista.
     const palabraEncontrada = document.querySelector(`[data-palabra="${palabraSeleccionada}"]`);
 
     if (palabraEncontrada) {
-        palabraEncontrada.classList.add('tachada');
+        palabraEncontrada.classList.add('tachada'); // Marca la palabra en la lista como encontrada.
+
+        // Marca las letras seleccionadas en la sopa como encontradas.
         seleccion.forEach(item => {
             const letraDiv = document.querySelector(`span[data-fila="${item.fila}"][data-columna="${item.columna}"]`);
             letraDiv.classList.add('encontrada');
         });
     }
 
-    // Limpia la selección
+    // Limpia la selección visual.
     document.querySelectorAll('.seleccionada').forEach(el => el.classList.remove('seleccionada'));
+
+    // Reinicia la lista de selección.
     seleccion = [];
 }
