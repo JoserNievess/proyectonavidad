@@ -19,8 +19,4 @@ class JuegoController extends Controller
     {
         return view('tresEnRaya');
     }
-    public function laberinto()
-    {
-        return view('laberinto');
-    }
 }
